@@ -61,21 +61,25 @@ public class IpAddressVerifier
      * IP Address in the format of Num.Num.Num.Num, where each Num is
      * and integer from 0 - 255 inclusive.
      */
-    public static String generateRandomIpAddress(){
+    public static String generateRandomIpAddress()
+    {
         StringBuffer result = new StringBuffer();
-        for(int i = 0; i<=3;i++){
+        for(int i = 0; i<=3;i++)
+        {
             double a = Math.random()*255;
             int b = (int)a;
             String c = String.valueOf(b);
             result.append(c);
-            if(i!=3){
+            if(i!=3)
+            {
                 result.append(".");
             }
         }
         String finalresult = new String(result);
         return finalresult;
     }
-    public static boolean isNumeric(String str) {
+    public static boolean isNumeric(String str)
+    {
         Pattern a = Pattern.compile("[0-9]*");
         return a.matcher(str).matches();
     }
