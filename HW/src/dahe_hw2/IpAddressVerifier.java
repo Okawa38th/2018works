@@ -45,7 +45,6 @@ public class IpAddressVerifier
             }
             }return false;
     }
-
     /**
      * YOU MUST DEFINE THIS METHOD - YOU MAY ADD HELPER METHODS
      *
