@@ -67,7 +67,6 @@ public class IpAddressVerifier
         String finalresult = new String(result);
         return finalresult;
     }
-
     public static boolean isNumeric(String str) {
         Pattern a = Pattern.compile("[0-9]*");
         return a.matcher(str).matches();
