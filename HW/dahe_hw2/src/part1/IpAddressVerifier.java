@@ -20,27 +20,35 @@ public class IpAddressVerifier
      * method argument and determine if it is in the proper format. If it
      * is, return true, otherwise return false;
      */
-    public static boolean isValidIpAddress(String testIpAddress){
+    public static boolean isValidIpAddress(String testIpAddress)
+    {
         String a ="0123456789";
-        if(testIpAddress.substring(testIpAddress.length()-1).contains(".") || !testIpAddress.contains(".")){
+        if(testIpAddress.substring(testIpAddress.length()-1).contains(".") || !testIpAddress.contains("."))
+        {
             return false;
         } else {
             String[] test1 = testIpAddress.split("\\.");
-            if (test1.length != 4) {
+            if (test1.length != 4)
+            {
                 return false;
             }else {
-                for(int b=0;b<=3;b++) {
+                for(int b=0;b<=3;b++)
+                {
                     boolean test2 = isNumeric(test1[b]);
-                    if (test2){
-                        for(int i = 0;i<=3;i++){
+                    if (test2)
+                    {
+                        for(int i = 0;i<=3;i++)
+                        {
                             int num =Integer.parseInt(test1[i]);
-                            if (num >255){
+                            if (num >255)
+                            {
                                 return false;
                             }
                         }return true;
-                    }else{
+                    }else
+                        {
                         return false;
-                    }
+                        }
                 }
             }
             }return false;
