@@ -13,8 +13,8 @@ import java.awt.Graphics;
  * does the most damage to frogger.
  */
 public class CrazyRandomOval extends FroggerSceneObject {
-    // THIS IS USED FOR AI
-    private int counter;
+        // THIS IS USED FOR AI
+        private int counter;
 
     /**
      * This constructor initializes all instance

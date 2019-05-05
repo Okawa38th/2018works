@@ -1,6 +1,9 @@
 package part2;
 
 import java.util.Scanner;
+
+import static part2.CheckAndRun.randomsth;
+
 public class ATypingTestGame
 {
     static String userinput;
@@ -52,7 +55,7 @@ public class ATypingTestGame
 
     private  static void runAnotherRound()
     {
-        StringBuffer b = CheckAndRun.randomsth();
+        StringBuffer b = randomsth();
         System.out.print(b+"\n");
         double timeused = CheckAndRun.timing(b);
         boolean testyourtype = CheckAndRun.test(b);

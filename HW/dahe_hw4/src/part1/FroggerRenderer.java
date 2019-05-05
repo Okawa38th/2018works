@@ -251,12 +251,12 @@ public class FroggerRenderer extends JPanel {
 
         // AND PICK A RANDOM OF THE 3 TYPES
         double num = Math.random();
-//		if (num < (1.0/3.0))
+		if (num < (1.0/3.0))
         return new CrazyRandomOval(x, y, 0, 0, height, height, randColor);
-//		else if (num < (2.0/3.0))
-//			return new SlowLifeGivingRoundRect(x, y, 0, 0, height*4, height, randColor);
-//		else
-//			return new ChargingEvilRect(x, y, 0, 0, height, height, randColor);
+		else if (num < (2.0/3.0))
+		return new SlowLifeGivingRoundRect(x, y, 1, 0, height*4, height, randColor);
+		else
+		return new ChargingEvilRect(x, y, 0, 0, height+20,height-10, randColor);
     }
 
     /**

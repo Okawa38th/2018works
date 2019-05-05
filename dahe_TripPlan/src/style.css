@@ -1,0 +1,83 @@
+.root{
+    -fx-font-size: 11pt;
+    -fx-background-color: #FDF5E6;
+}
+.hboxtop {
+    -fx-background-color: #F4A460;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-background-radius: 10.0;
+    -fx-background-insets: 5;
+    -fx-font-size: 10pt;
+    -fx-border-style: solid inside;
+    -fx-border-color: black;
+    -fx-border-radius: 10.0;
+    -fx-border-insets: 5;
+}
+.button{
+    -fx-font-family: "Bookman Old Style";
+}
+.vboxcenter{
+    -fx-background-color: #D2B48C;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-background-radius: 10.0;
+    -fx-font-size: 10pt;
+    -fx-border-style: solid inside;
+    -fx-border-color: black;
+    -fx-border-radius: 10.0;
+}
+.buttonAddAndSubtract{
+
+}
+.bottompart{
+    -fx-background-color: #D2B48C;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-background-radius: 10.0;
+    -fx-background-insets: 5;
+    -fx-font-size: 10pt;
+    -fx-border-style: solid inside;
+    -fx-border-color: black;
+    -fx-border-radius: 10.0;
+    -fx-border-insets: 5;
+}
+.list-view .list-cell:odd{
+    -fx-background-color: #F4A460;
+    -fx-padding: 5;
+    -fx-spacing: 40;
+    -fx-background-radius: 10.0;
+    -fx-background-insets: 5;
+    -fx-font-size: 10pt;
+    -fx-border-style: solid inside;
+    -fx-border-color: black;
+    -fx-border-radius: 10.0;
+    -fx-border-insets: 5;
+
+}
+.list-view .list-cell:even{
+    -fx-background-color: #F4A460;
+    -fx-spacing: 40;
+    -fx-background-radius: 10.0;
+    -fx-background-insets: 5;
+    -fx-font-size: 10pt;
+    -fx-border-style: solid inside;
+    -fx-border-color: black;
+    -fx-border-radius: 10.0;
+    -fx-border-insets: 5;
+
+}
+.list-view{
+    -fx-background-color: #F4A460;
+    -fx-padding: 5;
+    -fx-spacing: 40;
+    -fx-background-radius: 10.0;
+    -fx-background-insets: 5;
+
+}
+.list-view .scroll-bar:vertical .increment-arrow,
+.list-view .scroll-bar:vertical .decrement-arrow,
+.list-view .scroll-bar:vertical .increment-button,
+.list-view .scroll-bar:vertical .decrement-button {
+    -fx-padding:0;
+}
