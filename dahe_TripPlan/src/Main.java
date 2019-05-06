@@ -14,10 +14,7 @@ import javafx.scene.text.Text;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 
@@ -29,31 +26,31 @@ public class Main extends Application {
     Label labelPossiblestops = new Label("Possible Stops              ");
     Image MapImage = loadImage(ImageURL);
     BorderPane borderPane = new BorderPane();
-    HBox mainmenu = new HBox(20);
-    VBox tripsvbox = new VBox(10);
-    HBox tripshbox = new HBox(10);
+    HBox hbmainmenu = new HBox(20);
+    VBox vbtrips = new VBox(10);
+    HBox hbtrips = new HBox(10);
     GridPane centerpart = new GridPane();
-    HBox stopschoice = new HBox();
-    GridPane bottompart = new GridPane();
-    GridPane userinput = new GridPane();
-    Button tripsadd = new Button("+");
-    Button tripsubtract = new Button("-");
-    Button stopsadd = new Button("+");
-    Button stopssubtract = new Button("-");
+    HBox hbstopschoice = new HBox();
+    GridPane gpbottompart = new GridPane();
+    GridPane gpuserinput = new GridPane();
+    Button bttripsadd = new Button("+");
+    Button bttripsubtract = new Button("-");
+    Button btstopsadd = new Button("+");
+    Button btstopssubtract = new Button("-");
     ImageView LeftImageView = new ImageView();
-    Button New = new Button("New");
-    Button Save = new Button("Save");
-    Button Load = new Button("Load");
-    ListView<String> citiesListView;
-    ObservableList<Cities> stops = FXCollections.observableArrayList();
-    ListView<Cities> possibleStops;
+    Button btNew = new Button("New");
+    Button btSave = new Button("Save");
+    Button btLoad = new Button("Load");
+    ListView<String> lvcities;
+    ObservableList<Cities> olstops = FXCollections.observableArrayList();
+    ListView<Cities> lvpossiblestops;
     private TextField tfCity;
     private TextField tfState;
     private TextField tflatde;
     private TextField tflatmin;
     private TextField tflongde;
     private TextField tflongmin;
-    Button update = new Button("Update");
+    Button btupdate = new Button("Update");
 
 
     public static void main(String[] args) {
@@ -72,10 +69,10 @@ public class Main extends Application {
 
         //Main Pane(border pane)
         //Set up the top Menu
-        mainmenu.getChildren().addAll(New, Save, Load);
-        mainmenu.setPadding(new Insets(20, 20, 20, 20));
-        mainmenu.getStyleClass().add("hboxtop");
-        mainmenu.setPrefHeight(50);
+        hbmainmenu.getChildren().addAll(btNew, btSave, btLoad);
+        hbmainmenu.setPadding(new Insets(20, 20, 20, 20));
+        hbmainmenu.getStyleClass().add("hboxtop");
+        hbmainmenu.setPrefHeight(50);
 
 
         //Set up the Image(Center part)
@@ -85,31 +82,32 @@ public class Main extends Application {
 
 
         //Set up the center part
-        tripshbox.getChildren().addAll(labelTripStops, tripsadd, tripsubtract);
-        tripshbox.setSpacing(5);
-        tripsvbox.getChildren().addAll(tripshbox);
-        tripsvbox.getStyleClass().add("vboxcenter");
-        tripsvbox.setPrefWidth(350);
-        tripshbox.setPadding(new Insets(20, 20, 20, 20));
+        hbtrips.getChildren().addAll(labelTripStops, bttripsadd, bttripsubtract);
+        hbtrips.setSpacing(5);
+        vbtrips.getChildren().addAll(hbtrips);
+        vbtrips.getStyleClass().add("vboxcenter");
+        vbtrips.setPrefWidth(350);
+        hbtrips.setPadding(new Insets(20, 20, 20, 20));
         centerpart.add(LeftImageView, 0, 0);
-        centerpart.add(tripsvbox, 1, 0);
+        centerpart.add(vbtrips, 1, 0);
         centerpart.setPrefHeight(500);
         /*还没加listView */
 
         //Setting possible stops
-        possibleStops = new ListView<>();
-        possibleStops.setItems(stops);
-        possibleStops.setPrefWidth(100);
+        lvpossiblestops = new ListView<>();
+        lvpossiblestops.setItems(olstops);
+        lvpossiblestops.setPrefWidth(200);
         //Set up the bottom part
-        stopschoice.getChildren().addAll(stopsadd, stopssubtract);
-        bottompart.add(labelPossiblestops, 0, 0);
-        bottompart.add(stopschoice, 1, 0);
-        bottompart.add(userinput, 1, 1);
-        bottompart.add(possibleStops,0,1);
-        bottompart.setPadding(new Insets(20, 20, 20, 20));
-        bottompart.setHgap(10);
-        bottompart.setPrefHeight(430);
-        bottompart.getStyleClass().add("bottompart");
+        hbstopschoice.getChildren().addAll(btstopsadd, btstopssubtract);
+        gpbottompart.add(labelPossiblestops, 0, 0);
+        gpbottompart.add(hbstopschoice, 1, 0);
+        gpbottompart.add(gpuserinput, 1, 1);
+        gpbottompart.add(lvpossiblestops,0,1);
+        gpbottompart.setPadding(new Insets(20, 20, 20, 20));
+        gpbottompart.setHgap(10);
+        gpbottompart.setPrefHeight(430);
+        gpbottompart.getStyleClass().add("bottompart");
+
 
 
 
@@ -120,25 +118,25 @@ public class Main extends Application {
         tflatmin = new TextField();
         tflongde = new TextField();
         tflongmin = new TextField();
-        userinput.add(new Label("City:"), 0, 0);
-        userinput.add(new Label("State:"), 0, 1);
-        userinput.add(new Label("latitude Degree:"), 0, 2);
-        userinput.add(new Label("latitude Minutes: "), 0, 3);
-        userinput.add(new Label("longitude Degree: "), 0, 4);
-        userinput.add(new Label("longitude Minutes: "), 0, 5);
-        userinput.add(tfCity, 1, 0);
-        userinput.add(tfState, 1, 1);
-        userinput.add(tflatde, 1, 2);
-        userinput.add(tflatmin, 1, 3);
-        userinput.add(tflongde, 1, 4);
-        userinput.add(tflongmin, 1, 5);
-        userinput.add(update, 0, 6);
+        gpuserinput.add(new Label("City:"), 0, 0);
+        gpuserinput.add(new Label("State:"), 0, 1);
+        gpuserinput.add(new Label("latitude Degree:"), 0, 2);
+        gpuserinput.add(new Label("latitude Minutes: "), 0, 3);
+        gpuserinput.add(new Label("longitude Degree: "), 0, 4);
+        gpuserinput.add(new Label("longitude Minutes: "), 0, 5);
+        gpuserinput.add(tfCity, 1, 0);
+        gpuserinput.add(tfState, 1, 1);
+        gpuserinput.add(tflatde, 1, 2);
+        gpuserinput.add(tflatmin, 1, 3);
+        gpuserinput.add(tflongde, 1, 4);
+        gpuserinput.add(tflongmin, 1, 5);
+        gpuserinput.add(btupdate, 0, 6);
 
 
         //Set up scene
-        borderPane.setTop(mainmenu);
+        borderPane.setTop(hbmainmenu);
         borderPane.setCenter(centerpart);
-        borderPane.setBottom(bottompart);
+        borderPane.setBottom(gpbottompart);
         Mainscene = new Scene(borderPane, 1300, 1000);
 
         //Set up Stage
@@ -161,9 +159,31 @@ public class Main extends Application {
                 int longde = dis.readInt();
                 int longm = dis.readInt();
                 String longDi = dis.readUTF();
-                stops.add(new Cities(name,latDe,latM,latDi,longde,longm,longDi));
+                olstops.add(new Cities(name,latDe,latM,latDi,longde,longm,longDi));
             }
         } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    public void writeStoptoFile(String finleName){
+        DataOutputStream dos;
+        try{
+            File f = new File(filename);
+            FileOutputStream fos = new FileOutputStream(f);
+            dos = new DataOutputStream(fos);
+
+            for(int i =0; i<cities.size();i++){
+                dos.writeUTF(cities.get(i).getName());
+                dos.writeInt(cities.get(i).getLatDe());
+                dos.writeInt(cities.get(i).getLatM());
+                dos.writeUTF(cities.get(i).getLatDi());
+                dos.writeInt(cities.get(i).getLongde());
+                dos.writeInt(cities.get(i).getLongm());
+                dos.writeUTF(cities.get(i).getLongDi());
+            }
+            dos.close();
+        }catch (IOException ioe){
             ioe.printStackTrace();
         }
     }
