@@ -74,7 +74,7 @@ public class Main extends Application {
     File txtpossibleplace = new File("PossiblePlaceToGo.txt");
     File txtdefault = new File("default.txt");
     FileChooser.ExtensionFilter txtfile = new FileChooser.ExtensionFilter("ONLY TEXT FILE!(.txt)","*.txt");
-
+/*qweqwe*/
     private TextField tfCity;
     private TextField tfState;
     private TextField tflatde;
