@@ -17,30 +17,52 @@
 .button{
     -fx-font-family: "Bookman Old Style";
 }
+.button:hover{
+    -fx-background-color:#4682B4;
+}
 .vboxcenter{
+    -fx-font-family:"Times New Roman";
     -fx-background-color: #D2B48C;
     -fx-padding: 15;
     -fx-spacing: 10;
     -fx-background-radius: 10.0;
-    -fx-font-size: 10pt;
+    -fx-font-size: 15pt;
     -fx-border-style: solid inside;
     -fx-border-color: black;
     -fx-border-radius: 10.0;
 }
 .buttonAddAndSubtract{
+    -fx-font-size: 12pt;
+    -fx-background-radius: 8.0;
+    -fx-font-family:"Times New Roman";
 
 }
 .bottompart{
+    -fx-font-family:"Times New Roman";
     -fx-background-color: #D2B48C;
     -fx-padding: 15;
     -fx-spacing: 10;
     -fx-background-radius: 10.0;
     -fx-background-insets: 5;
-    -fx-font-size: 10pt;
+    -fx-font-size: 12pt;
     -fx-border-style: solid inside;
     -fx-border-color: black;
     -fx-border-radius: 10.0;
     -fx-border-insets: 5;
+}
+
+.gpuserinput{
+    -fx-background-color:#FFDEAD;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-background-radius: 10.0;
+    -fx-background-insets: 5;
+    -fx-font-size: 12pt;
+    -fx-border-style: solid inside;
+    -fx-border-color: black;
+    -fx-border-radius: 10.0;
+    -fx-border-insets: 5;
+    -fx-font-family: "Bookman Old Style";
 }
 .list-view .list-cell:odd{
     -fx-background-color: #F4A460;
@@ -48,7 +70,7 @@
     -fx-spacing: 40;
     -fx-background-radius: 10.0;
     -fx-background-insets: 5;
-    -fx-font-size: 10pt;
+    -fx-font-size: 12pt;
     -fx-border-style: solid inside;
     -fx-border-color: black;
     -fx-border-radius: 10.0;
@@ -60,7 +82,7 @@
     -fx-spacing: 40;
     -fx-background-radius: 10.0;
     -fx-background-insets: 5;
-    -fx-font-size: 10pt;
+    -fx-font-size: 12pt;
     -fx-border-style: solid inside;
     -fx-border-color: black;
     -fx-border-radius: 10.0;
@@ -73,16 +95,33 @@
     -fx-spacing: 20;
     -fx-background-radius: 10.0;
     -fx-background-insets: 5;
-
+    -fx-font-family:"Times New Roman";
 }
+.list-view .list-cell:odd:selected {
+    -fx-background-color:#8B4513;
+}
+.list-view .list-cell:even:selected {
+    -fx-background-color:#8B4513;
+}
+
 
 .list-view .scroll-bar:vertical .increment-button,
 .list-view .scroll-bar:vertical .decrement-button,
 .list-view .scroll-bar:vertical .track{
     -fx-background-color: #D2B48C;
     -fx-padding: 3;
-
 }
 .list-view .scroll-bar:vertical .thumb{
     -fx-background-color: #A0522D;
+}
+
+.list-view .list-cell:even:empty,
+.list-view .list-cell:odd:empty{
+    -fx-background-color: #D2B48C;
+    -fx-border-color: #D2B48C;
+}
+
+.AleartBox{
+    -fx-font-family: Impact;
+    -fx-font-size: 15pt;
 }
